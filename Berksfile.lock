@@ -1,0 +1,48 @@
+DEPENDENCIES
+  apt
+  java (~> 1.29.0)
+  jetty (~> 0.1.2)
+  my_nginx
+    path: site-cookbooks/my_nginx
+  my_ntp
+    path: site-cookbooks/my_ntp
+  my_timezone
+    path: site-cookbooks/my_timezone
+  nginx
+  timezone-ii
+
+GRAPH
+  apt (2.6.1)
+  bluepill (2.3.1)
+    rsyslog (>= 0.0.0)
+  build-essential (2.1.3)
+  chef-sugar (2.5.0)
+  java (1.29.0)
+  jetty (0.1.2)
+    java (>= 0.0.0)
+    jpackage (>= 0.0.0)
+    openssl (>= 0.0.0)
+  jpackage (1.0.2)
+    java (>= 0.0.0)
+  my_nginx (0.1.0)
+  my_ntp (0.1.0)
+  my_timezone (0.1.0)
+  nginx (2.7.4)
+    apt (~> 2.2)
+    bluepill (~> 2.3)
+    build-essential (~> 2.0)
+    ohai (~> 2.0)
+    runit (~> 1.2)
+    yum-epel (~> 0.3)
+  ohai (2.0.1)
+  openssl (2.0.2)
+    chef-sugar (>= 0.0.0)
+  rsyslog (1.13.0)
+  runit (1.5.12)
+    build-essential (>= 0.0.0)
+    yum (~> 3.0)
+    yum-epel (>= 0.0.0)
+  timezone-ii (0.2.0)
+  yum (3.5.2)
+  yum-epel (0.6.0)
+    yum (~> 3.0)
