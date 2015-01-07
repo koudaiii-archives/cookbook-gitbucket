@@ -8,3 +8,5 @@ gem 'berkshelf'
 # Use test
 gem 'serverspec'
 gem 'rake'
+gem 'thor'
+gem 'docker-api'

@@ -2,6 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     addressable (2.3.6)
+    archive-tar-minitar (0.5.2)
     berkshelf (3.2.2)
       addressable (~> 2.3.4)
       berkshelf-api-client (~> 1.2)
@@ -62,7 +63,12 @@ GEM
       dep-selector-libgecode (~> 1.0)
       ffi (~> 1.9)
     diff-lcs (1.2.5)
+    docker-api (1.17.0)
+      archive-tar-minitar
+      excon (>= 0.38.0)
+      json
     erubis (2.7.0)
+    excon (0.42.1)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.6)
@@ -187,6 +193,8 @@ PLATFORMS
 
 DEPENDENCIES
   berkshelf
+  docker-api
   knife-solo
   rake
   serverspec
+  thor
