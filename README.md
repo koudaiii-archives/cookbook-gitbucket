@@ -36,6 +36,12 @@ If you want to modify timezone. please set default attributes.
 
 #### build and run test
 
+* bundle install
+
+```bash
+bundle install
+```
+
 * build berks
 
 ```bash
