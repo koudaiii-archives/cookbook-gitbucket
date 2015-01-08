@@ -1,5 +1,4 @@
 DEPENDENCIES
-  apt
   java (~> 1.29.0)
   jetty (~> 0.1.2)
   my_nginx

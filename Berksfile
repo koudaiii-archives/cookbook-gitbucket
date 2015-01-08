@@ -1,6 +1,5 @@
 source 'https://supermarket.chef.io' 
 
-cookbook 'apt'
 cookbook 'nginx'
 cookbook 'timezone-ii'
 cookbook 'java', '~> 1.29.0'
