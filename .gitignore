@@ -1,6 +1,8 @@
 .vagrant
 /cookbooks
-
+docker/*/cookbooks
+berks-cookbooks
+vendor/bundle
 # Bundler
 bin/*
 .bundle/*
