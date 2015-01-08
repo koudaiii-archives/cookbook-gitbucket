@@ -26,6 +26,7 @@ GRAPH
   my_nginx (0.1.0)
   my_ntp (0.1.0)
   my_timezone (0.1.0)
+    timezone-ii (>= 0.0.0)
   nginx (2.7.4)
     apt (~> 2.2)
     bluepill (~> 2.3)

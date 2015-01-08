@@ -1,3 +1,5 @@
 {
-  "name": "webapp"
+  "run_list": [
+    "role[base]"
+  ]
 }

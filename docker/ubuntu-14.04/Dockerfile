@@ -8,8 +8,9 @@ RUN echo "local_mode      true" >> /etc/chef/client.rb;  \
     echo "node_path       '/var/chef/node'" >> /etc/chef/client.rb; \
     echo "environment     '_default'" >> /etc/chef/client.rb; \
     echo "ssl_verify_mode :verify_peer" >> /etc/chef/client.rb;
-RUN echo '{"run_list":["recipe[apt]"]}' > /var/chef/node/localhost.json
+RUN echo '{"run_list":["role[base]"]}' > /var/chef/node/localhost.json
 
 COPY ./cookbooks /cookbooks
+COPY ./roles /roles
 
 RUN chef-client -j /var/chef/node/localhost.json

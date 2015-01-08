@@ -1,4 +1,7 @@
 require 'spec_helper'
+describe file('/etc/localtime') do
+  it { should contain 'JST' }
+end
 
 describe package('httpd'), :if => os[:family] == 'redhat' do
   it { should be_installed }

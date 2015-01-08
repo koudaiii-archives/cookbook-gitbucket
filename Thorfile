@@ -30,11 +30,18 @@ class Docker < Thor
     run "bundle exec berks vendor #{dir}"
   end
 
+  desc 'role', 'copy role'
+  def role(role_dir)
+    run 'rm -rf #{role_dir}'
+    run 'install -d roles #{role_dir}'
+  end
+
   desc 'build', 'build docker image provisioned by chef'
   def build
     IMAGE_MAPPING.each do |name, mapping|
       base, dest = mapping[:base], mapping[:dest]
       berkshelf "docker/#{name}/cookbooks"
+      role "docker/#{name}/roles"
 
       run "docker build -t #{dest} docker/#{name}"
     end
