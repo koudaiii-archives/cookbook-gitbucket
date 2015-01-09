@@ -32,7 +32,35 @@ If you want to modify timezone. please set default attributes.
 * Ruby 2.1.5 or later
 * gem install bundler
 
-### Usage (Vagrant)
+### Usage
+
+* bundle install
+
+```bash
+bundle install
+```
+
+* build berks
+
+```bash
+bundle exec berks vendor cookbooks
+```
+
+* provision server
+
+```bash
+bundle exec knife solo bootstrap YourServer
+```
+
+### Develop(Vagrant)
+
+#### Requiremants
+
+* add hosts
+
+```hosts
+192.168.33.10 webapp
+```
 
 #### build and run test
 
@@ -52,6 +80,12 @@ bundle exec berks vendor cookbooks
 
 ```bash
 vagrant up --provider=virtualbox
+```
+
+* provision server
+
+```bash
+bundle exec knife solo bootstrap webapp
 ```
 
 ### Test(Docker)
