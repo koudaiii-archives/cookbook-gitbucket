@@ -1,8 +1,17 @@
 {
   "name": "base",
-  "chef_tpe" : "role",
+  "chef_type" : "role",
   "json_class" : "Chef::Role",
+  "override_attributes": {
+    "jetty": {
+      "host": "127.0.0.1",
+      "home": "/otp/jetty"
+    }
+  },
   "run_list": [
-    "recipe[my_timezone]"
+    "recipe[my_timezone]",
+    "recipe[my_ntp]",
+    "recipe[java]",
+    "recipe[jetty]"
   ]
 }

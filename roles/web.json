@@ -1,3 +1,9 @@
 {
-  "name": "web"
+  "name": "web",
+  "chef_tpe" : "role",
+  "json_class" : "Chef::Role",
+  "run_list": [
+    "recipe[my_nginx]",
+    "recipe[my_gitbucket]"
+  ]
 }

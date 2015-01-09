@@ -24,6 +24,7 @@ GRAPH
   jpackage (1.0.2)
     java (>= 0.0.0)
   my_nginx (0.1.0)
+    nginx (>= 0.0.0)
   my_ntp (0.1.0)
   my_timezone (0.1.0)
     timezone-ii (>= 0.0.0)
