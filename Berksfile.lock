@@ -1,6 +1,8 @@
 DEPENDENCIES
   java (~> 1.29.0)
   jetty (~> 0.1.2)
+  my_jetty
+    path: site-cookbooks/my_jetty
   my_nginx
     path: site-cookbooks/my_nginx
   my_ntp
@@ -23,6 +25,8 @@ GRAPH
     openssl (>= 0.0.0)
   jpackage (1.0.2)
     java (>= 0.0.0)
+  my_jetty (0.1.0)
+    jpackage (>= 0.0.0)
   my_nginx (0.1.0)
     nginx (>= 0.0.0)
   my_ntp (0.1.0)

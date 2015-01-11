@@ -2,6 +2,14 @@
   "name": "web",
   "chef_tpe" : "role",
   "json_class" : "Chef::Role",
+  "override_attributes": {
+    "my_nginx" : {
+      "servername" : "webapp"
+    },
+    "my_gitbucket" : {
+      "download_url" : "https://github.com/takezoe/gitbucket/releases/download/2.7/gitbucket.war"
+    }
+  },
   "run_list": [
     "recipe[my_nginx]",
     "recipe[my_gitbucket]"

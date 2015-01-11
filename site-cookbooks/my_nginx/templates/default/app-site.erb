@@ -13,19 +13,6 @@ server {
   }
 
 
-  log_format ltsv "time:$time_local"
-                  "\thost:$remote_addr"
-                  "\tforwardedfor:$http_x_forwarded_for"
-                  "\treq:$request"
-                  "\tstatus:$status"
-                  "\tsize:$body_bytes_sent"
-                  "\treferer:$http_referer"
-                  "\tua:$http_user_agent"
-                  "\treqtime:$request_time"
-                  "\tcache:$upstream_http_x_cache"
-                  "\truntime:$upstream_http_x_runtime"
-                  "\tvhost:$host";
-
   access_log <%= node['nginx']['log_dir'] %>/<%= node['my_nginx']['app'] %>.access.log ltsv;
   error_log <%= node['nginx']['log_dir'] %>/<%= node['my_nginx']['app'] %>.error.log info;
 

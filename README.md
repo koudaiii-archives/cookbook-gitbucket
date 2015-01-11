@@ -9,13 +9,34 @@ cookbook for gitbucket
 
 install gitbucket by Chef Solo.
 default timezone is Tokyo.
-If you want to modify timezone. please set default attributes.
+If you want to Customize. please set default attributes.
 
 * example
 
-```json
-  "tz": "Africa/Timbuktu"
+Change URL and gitbucket version
+
+```roles/web.json
+  "override_attributes": {
+    "my_nginx" : {
+      "servername" : "webapp"
+    },
+    "my_gitbucket" : {
+      "download_url" : "https://github.com/takezoe/gitbucket/releases/download/2.7/gitbucket.war"
+    }
+  }
 ```
+
+```roles/base.json
+  "tz": "Asia/Tokyo",
+  "override_attributes": {
+    "jetty" : {
+      "host": "127.0.0.1"
+      "java_options": ""
+      "home": "/opt/jetty"
+    }
+  },
+```
+
 
 ### Requirement
 
@@ -60,6 +81,18 @@ bundle exec knife solo bootstrap YourServer
 
 ```hosts
 192.168.33.10 webapp
+```
+
+* add ssh config
+
+```config
+vagrant ssh-config >> ~/.ssh/config
+```
+
+* chanage Host
+
+```~/.ssh/config
+Host webapp
 ```
 
 #### build and run test
