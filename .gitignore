@@ -1,6 +1,7 @@
 .vagrant
 /cookbooks
 docker/*/cookbooks
+docker/*/roles
 berks-cookbooks
 vendor/bundle
 # Bundler
