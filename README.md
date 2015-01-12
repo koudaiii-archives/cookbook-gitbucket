@@ -11,6 +11,8 @@ install gitbucket by Chef Solo.
 default timezone is Tokyo.
 If you want to Customize. please set default attributes.
 
+Platform is ubuntu14.04 and CentOS6.
+
 * example
 
 Change URL and gitbucket version
@@ -29,10 +31,17 @@ Change URL and gitbucket version
 ```roles/base.json
   "tz": "Asia/Tokyo",
   "override_attributes": {
-    "jetty" : {
-      "host": "127.0.0.1"
-      "java_options": ""
+    "my_jetty" : {
+      "download_url" : "http://download.eclipse.org/jetty/stable-9/dist/jetty-distribution-9.2.6.v20141205.tar.gz",
+      "host": "127.0.0.1",
+      "java_options": "",
       "home": "/opt/jetty"
+    },
+    "java" : {
+      "install_flavor" : "oracle",
+      "jdk_version" : "7",
+      "oracle" : {
+      "accept_oracle_download_terms" : true
     }
   },
 ```

@@ -32,8 +32,8 @@ class Docker < Thor
 
   desc 'role', 'copy role'
   def role(role_dir)
-    run 'rm -rf #{role_dir}'
-    run 'install -d roles #{role_dir}'
+    run "rm -rf #{role_dir}"
+    run "cp -r roles #{role_dir}"
   end
 
   desc 'build', 'build docker image provisioned by chef'
@@ -42,7 +42,6 @@ class Docker < Thor
       base, dest = mapping[:base], mapping[:dest]
       berkshelf "docker/#{name}/cookbooks"
       role "docker/#{name}/roles"
-
       run "docker build -t #{dest} docker/#{name}"
     end
   end

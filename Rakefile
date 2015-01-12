@@ -4,6 +4,34 @@ require 'rspec/core/rake_task'
 task :spec    => 'spec:all'
 task :default => :spec
 
+namespace :vagrant do
+  desc 'setup and vagrant up and bootstrap'
+  task :init => [:setup, :up, :bootstrap]
+
+  desc 'bundle exec berks vendor cookbooks'
+  task :setup do
+    sh 'bundle', 'install', '--quiet'
+    rm_rf 'cookbooks'
+    sh 'bundle', 'exec', 'berks', 'vendor', 'cookbooks'
+  end
+
+  desc 'vagrant up'
+  task :up do
+    sh 'vagrant', 'up'
+  end
+
+  desc 'bundle exec knife solo bootstrap webapp'
+  task :bootstrap do
+    sh 'bundle', 'exec', 'knife', 'solo', 'bootstrap', 'webapp'
+  end
+
+  desc 'vagrant destroy -f default'
+  task :clean do
+    sh 'vagrant', 'destroy'
+  end
+end
+
+desc 'spec'
 namespace :spec do
   targets = []
   Dir.glob('./spec/*').each do |dir|

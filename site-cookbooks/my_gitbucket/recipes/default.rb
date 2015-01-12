@@ -11,5 +11,5 @@ remote_file "/opt/jetty/webapps/gitbucket.war" do
   user "jetty"
   group "jetty"
   mode "0755"
-  notifies :restart, "service[jetty]"
+  notifies :start, "service[jetty]", :immediately
 end

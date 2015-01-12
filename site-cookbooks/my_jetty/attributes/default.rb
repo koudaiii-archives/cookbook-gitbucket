@@ -26,15 +26,5 @@ default["jetty"]["java_options"] = ""
 default["jetty"]["home"] = "/opt/jetty"
 default["jetty"]["user"] = "jetty"
 default["jetty"]["group"] = "jetty"
-
-case platform
-when "centos","redhat","fedora","amazon","scientific"
-  set["jetty"]["log_dir"] = "/var/log/jetty6"
-  set["jetty"]["tmp_dir"] = "/var/cache/jetty/data"
-when "debian","ubuntu"
-  set["jetty"]["log_dir"] = "/var/log/jetty"
-  set["jetty"]["tmp_dir"] = "/var/cache/jetty/data"
-else
-  set["jetty"]["log_dir"] = "/var/log/jetty"
-  set["jetty"]["tmp_dir"] = "/var/cache/jetty/data"
-end
+default["jetty"]["tmp_dir"] = "/var/cache/jetty/data"
+default["jetty"]["log_dir"] = "/var/log/jetty"

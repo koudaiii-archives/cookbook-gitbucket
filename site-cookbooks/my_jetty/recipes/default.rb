@@ -64,10 +64,10 @@ template "/etc/default/jetty" do
   owner "root"
   group "root"
   mode "0644"
-  notifies :restart, "service[jetty]"
 end
 
 service "jetty" do
   service_name "jetty"
   supports :restart => true, :status => true
+  action :enable
 end
