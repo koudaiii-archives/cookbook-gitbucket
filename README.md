@@ -80,6 +80,9 @@ bundle exec berks vendor cookbooks
 bundle exec knife solo bootstrap YourServer
 ```
 
+* [Defalut]Jetty is stopped service. Please command "service jetty start".
+* [Defalut]Gitbucket accepts the "http://webapp/". Please set up "/etc/nginx/sites-enabled/app".
+
 ### Develop(Vagrant)
 
 #### Requiremants
