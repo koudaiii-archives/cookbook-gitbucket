@@ -46,13 +46,11 @@ Change URL and gitbucket version
   },
 ```
 
-
 ### Requirement
 
 * cookbook 'nginx'
 * cookbook 'timezone-ii'
 * cookbook 'java'
-* cookbook 'jetty'
 
 ### Install
 
@@ -106,35 +104,17 @@ Host webapp
 
 #### build and run test
 
-* bundle install
+* bootstrapping
 
 ```bash
-bundle install
-```
-
-* build berks
-
-```bash
-bundle exec berks vendor cookbooks
-```
-
-* build vm and provisioning
-
-```bash
-vagrant up --provider=virtualbox
-```
-
-* provision server
-
-```bash
-bundle exec knife solo bootstrap webapp
+bundle exec rake vagrant:bootstrap
 ```
 
 ### Test(Docker)
 
 #### Requirements
 
-* Docker 1.0
+* Docker 1.0+
 
 #### build and run test
 
