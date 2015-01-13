@@ -2,7 +2,7 @@ upstream jetty {
   server 127.0.0.1:8080;
 }
 server {
-  server_name <%= node['my_nginx']['servername'] %>; # change to match your URL
+  server_name <%= node['my_nginx']['servername'] %> <%= node['ipaddress'] %>; # change to match your URL
 
   try_files $uri/index.html $uri @jetty;
   location @jetty {
