@@ -6,7 +6,7 @@ IMAGE_MAPPING = {
   },
   "centos-6" => {
     :base => "chef/centos-6",
-    :dest => "koudaiii/cookbook-gitbucker-centos-6"
+    :dest => "koudaiii/cookbook-gitbucket-centos-6"
   },
 }
 
@@ -30,18 +30,11 @@ class Docker < Thor
     run "bundle exec berks vendor #{dir}"
   end
 
-  desc 'role', 'copy role'
-  def role(role_dir)
-    run "rm -rf #{role_dir}"
-    run "cp -r roles #{role_dir}"
-  end
-
   desc 'build', 'build docker image provisioned by chef'
   def build
     IMAGE_MAPPING.each do |name, mapping|
       base, dest = mapping[:base], mapping[:dest]
       berkshelf "docker/#{name}/cookbooks"
-      role "docker/#{name}/roles"
       run "docker build -t #{dest} docker/#{name}"
     end
   end
@@ -50,6 +43,7 @@ class Docker < Thor
   def spec
     IMAGES.each do |image|
       ENV['DOCKER_IMAGE'] = image
+      run "echo #{image}"
       run("bundle exec rspec -r spec_helper")
     end
   end

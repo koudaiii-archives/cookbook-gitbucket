@@ -24,7 +24,7 @@ user 'jetty' do
   action   [:create, :manage]
 end
 
-remote_file "/jetty.tar.gz" do
+remote_file "/root/jetty.tar.gz" do
     source node["jetty"]["download_url"]
     user "root"
     mode "0755"
@@ -35,9 +35,9 @@ script "install_jetty" do
   interpreter "bash"
   user        "root"
   code <<-EOL
-    cd /
+    cd /root/
     tar zxvf jetty.tar.gz
-    mv /jetty-distribution-9.2.6.v20141205 /opt/jetty
+    mv /root/jetty-distribution-9.2.6.v20141205 /opt/jetty
     cp /opt/jetty/bin/jetty.sh /etc/init.d/jetty
     chown -R jetty:jetty /opt/jetty
   EOL

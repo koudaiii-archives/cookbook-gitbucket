@@ -4,12 +4,8 @@ describe file('/etc/localtime') do
   it { should contain 'JST' }
 end
 
-describe package('java') do
-  it { should be_installed }
-end
-
-describe package('jetty') do
-  it { should be_installed }
+describe command('java -version') do
+  its(:stderr) { should match "java" }
 end
 
 describe service('jetty') do
@@ -24,6 +20,6 @@ describe service('nginx') do
   it { should be_enabled }
 end
 
-describe port(80) do
-  it { should be_listening }
+describe file('/opt/jetty/webapps/gitbucket.war') do
+  it { should be_file }
 end
