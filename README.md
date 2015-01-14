@@ -91,8 +91,8 @@ bundle exec berks vendor cookbooks
 bundle exec knife solo bootstrap YourServer
 ```
 
-* [Defalut]Jetty is stopped service. Please command "service jetty start".
-* [Defalut]Gitbucket accepts the "http://webapp/". Please set up "/etc/nginx/sites-enabled/app".
+* [Defalut]Jetty is stopped service. Please command "service jetty start" in root user.
+* [Defalut]Gitbucket accepts the "http:// webapp or ipaddress /gitbucket". Please set up "/etc/nginx/sites-enabled/app".
 
 ### Develop(Vagrant)
 
@@ -121,7 +121,7 @@ Host webapp
 * bootstrapping
 
 ```bash
-bundle exec rake vagrant:initb
+bundle exec rake vagrant:init
 ```
 
 ### Test(Docker)
