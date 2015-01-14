@@ -8,4 +8,4 @@ cookbook 'my_nginx', path: './site-cookbooks/my_nginx'
 cookbook 'my_jetty', path: './site-cookbooks/my_jetty'
 cookbook 'my_ntp', path: './site-cookbooks/my_ntp'
 cookbook 'my_gitbucket', path: './site-cookbooks/my_gitbucket'
-
+cookbook "my_postfix", path: "./site-cookbooks/my_postfix"

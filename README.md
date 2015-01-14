@@ -9,9 +9,10 @@ cookbook for gitbucket
 
 install gitbucket by Chef Solo.
 default timezone is Tokyo.
-If you want to Customize. please set default attributes.
 
-Platform is ubuntu14.04 and CentOS6.
+* Platform is ubuntu14.04 and CentOS6.
+
+If you want to Customize. please set default attributes.
 
 * example
 
@@ -44,6 +45,16 @@ Change URL and gitbucket version
       "accept_oracle_download_terms" : true
     }
   },
+```
+
+* Mail setup
+http://YourServer/gitbucket/admin/system
+```
+Check Send notifications.
+SMTP Host 127.0.0.1
+SMTP Port 25
+SMTP User #Nothing
+SMTP Password #Nothing
 ```
 
 ### Requirement
@@ -110,7 +121,7 @@ Host webapp
 * bootstrapping
 
 ```bash
-bundle exec rake vagrant:bootstrap
+bundle exec rake vagrant:initb
 ```
 
 ### Test(Docker)

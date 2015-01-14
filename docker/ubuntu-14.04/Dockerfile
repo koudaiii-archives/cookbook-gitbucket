@@ -15,6 +15,7 @@ RUN echo "local_mode      true" >> /etc/chef/client.rb;  \
 
 RUN echo '{"run_list":["recipe[my_timezone]"]}' > /var/chef/node/my_timezone.json
 RUN echo '{"run_list":["recipe[my_ntp]"]}' > /var/chef/node/my_ntp.json
+RUN echo '{"run_list":["recipe[my_postfix]"]}' > /var/chef/node/my_postfix.json
 RUN echo '{"run_list":["recipe[java]"]}' > /var/chef/node/java.json
 RUN echo '{"run_list":["recipe[my_jetty]"]}' > /var/chef/node/my_jetty.json
 RUN echo '{"run_list":["recipe[my_nginx]"]}' > /var/chef/node/my_nginx.json
@@ -24,6 +25,7 @@ COPY ./cookbooks /cookbooks
 
 RUN chef-client -j /var/chef/node/my_timezone.json
 RUN chef-client -j /var/chef/node/my_ntp.json
+RUN chef-client -j /var/chef/node/my_postfix.json
 RUN chef-client -j /var/chef/node/java.json
 RUN chef-client -j /var/chef/node/my_jetty.json
 RUN chef-client -j /var/chef/node/my_nginx.json

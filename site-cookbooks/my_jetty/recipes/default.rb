@@ -9,13 +9,13 @@
 
 group 'jetty' do
   group_name 'jetty'
-  system true
+  system false
   action     [:create]
 end
 
 user 'jetty' do
   comment  'jetty'
-  system true
+  system false
   group    'jetty'
   home     '/home/jetty'
   shell    '/bin/bash'

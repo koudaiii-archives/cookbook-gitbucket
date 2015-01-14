@@ -8,6 +8,8 @@ DEPENDENCIES
     path: site-cookbooks/my_nginx
   my_ntp
     path: site-cookbooks/my_ntp
+  my_postfix
+    path: site-cookbooks/my_postfix
   my_timezone
     path: site-cookbooks/my_timezone
   nginx
@@ -27,6 +29,8 @@ GRAPH
   my_nginx (0.1.0)
     nginx (>= 0.0.0)
   my_ntp (0.1.0)
+  my_postfix (0.1.0)
+    postfix (>= 0.0.0)
   my_timezone (0.1.0)
     timezone-ii (>= 0.0.0)
   nginx (2.7.4)
@@ -37,6 +41,7 @@ GRAPH
     runit (~> 1.2)
     yum-epel (~> 0.3)
   ohai (2.0.1)
+  postfix (3.6.2)
   rsyslog (1.13.0)
   runit (1.5.12)
     build-essential (>= 0.0.0)

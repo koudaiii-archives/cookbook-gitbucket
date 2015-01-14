@@ -8,6 +8,10 @@ describe command('java -version') do
   its(:stderr) { should match "java" }
 end
 
+describe service('postfix') do
+  it { should be_enabled }
+end
+
 describe service('jetty') do
   it { should be_enabled }
 end
