@@ -4,8 +4,8 @@ describe file('/etc/localtime') do
   it { should contain 'JST' }
 end
 
-describe command('java -version') do
-  its(:stderr) { should match "java" }
+describe command('/usr/bin/java -version') do
+  its(:exit_status) { should eq 0 }
 end
 
 describe service('postfix') do
