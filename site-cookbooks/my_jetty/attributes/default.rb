@@ -16,7 +16,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-default["jetty"]["download_url"] = "http://download.eclipse.org/jetty/stable-9/dist/jetty-distribution-9.2.6.v20141205.tar.gz"
+distribution = "jetty-distribution-9.2.7.v20150116.tar.gz"
+download_url = "http://download.eclipse.org/jetty/stable-9/dist/"
+default["jetty"]["download_url"] = download_url + distribution
+default["jetty"]["distribution"] = distribution
 
 default["jetty"]["host"] = "0.0.0.0"
 default["jetty"]["port"] = 8080

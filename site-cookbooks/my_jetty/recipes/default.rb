@@ -31,13 +31,14 @@ remote_file "/root/jetty.tar.gz" do
     not_if { File.exist?("/jetty.tar.gz") }
 end
 
+
 script "install_jetty" do
   interpreter "bash"
   user        "root"
   code <<-EOL
     cd /root/
     tar zxvf jetty.tar.gz
-    mv /root/jetty-distribution-9.2.6.v20141205 /opt/jetty
+    mv /root/jetty-distribution-9.2.7.v20150116 /opt/jetty
     cp /opt/jetty/bin/jetty.sh /etc/init.d/jetty
     chown -R jetty:jetty /opt/jetty
   EOL
