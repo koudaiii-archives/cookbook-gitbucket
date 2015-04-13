@@ -17,10 +17,9 @@ class Docker < Thor
 
   default_task :default
 
-  desc 'default', 'build image and run spec'
+  desc 'default', 'build image'
   def default
     build
-    spec
   end
 
   desc 'berkshelf', 'berks vendor'

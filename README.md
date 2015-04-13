@@ -126,6 +126,10 @@ Host webapp
 
 * Docker 1.0+
 
+```bash
+ $ bundle exec thor docker
+```
+
 #### test
 
 ```bash
