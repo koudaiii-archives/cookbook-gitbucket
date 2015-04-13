@@ -3,12 +3,18 @@ cookbook-gitbucket
 
 ### Overview
 
-cookbook for gitbucket
+cookbook for GitBucket
 
 ### Description
 
-install gitbucket by Chef Solo.
-default timezone is Tokyo.
+* install GitBucket by Chef Solo.
+* timezone is Tokyo.
+
+### Feature
+
+* Supported SSL
+* Supported backup
+* Supported SMTP
 
 * Platform is ubuntu14.04 and CentOS6.
 
@@ -32,12 +38,6 @@ Change URL and gitbucket version
 ```roles/base.json
   "tz": "Asia/Tokyo",
   "override_attributes": {
-    "my_jetty" : {
-      "download_url" : "http://download.eclipse.org/jetty/stable-9/dist/jetty-distribution-9.2.6.v20141205.tar.gz",
-      "host": "127.0.0.1",
-      "java_options": "",
-      "home": "/opt/jetty"
-    },
     "java" : {
       "install_flavor" : "oracle",
       "jdk_version" : "7",
@@ -47,8 +47,9 @@ Change URL and gitbucket version
   },
 ```
 
-* Mail setup
-http://YourServer/gitbucket/admin/system
+* Setup Notification Mail in GitBucket
+* http://YourServer/gitbucket/admin/system
+
 ```
 Check Send notifications.
 SMTP Host 127.0.0.1
@@ -57,17 +58,8 @@ SMTP User #Nothing
 SMTP Password #Nothing
 ```
 
-### Requirement
-
-* cookbook 'nginx'
-* cookbook 'timezone-ii'
-* cookbook 'java'
-
 ### Install
 
-* vagrant 1.6.3 or later
-* virtualbox
-* vagrant plugin vagrant-omnibus
 * Ruby 2.1.5 or later
 * gem install bundler
 
@@ -91,14 +83,14 @@ bundle exec berks vendor cookbooks
 bundle exec knife solo bootstrap YourServer
 ```
 
-* [Defalut]Jetty is stopped service. Please command "service jetty start" in root user.
-* [Defalut]Gitbucket accepts the "http:// webapp or ipaddress /gitbucket". Please set up "/etc/nginx/sites-enabled/app".
-
-### Develop(Vagrant)
+### local(Vagrant)
 
 #### Requiremants
 
-* add hosts
+* vagrant 1.6.3 or later
+* virtualbox
+* setup your "/etc/hosts" file
+* set up Host Only Network in Virtualbox.(default ip:192.168.33.10)
 
 ```hosts
 192.168.33.10 webapp
@@ -116,24 +108,28 @@ vagrant ssh-config >> ~/.ssh/config
 Host webapp
 ```
 
-#### build and run test
+* vagrant up
 
-* bootstrapping
-
-```bash
-bundle exec rake vagrant:init
+```
+ $ vagrant up
 ```
 
-### Test(Docker)
+* knife solo
+
+```
+ $ bundle exec knife solo bootstrap webapp
+```
+
+### local(Docker)
 
 #### Requirements
 
 * Docker 1.0+
 
-#### build and run test
+#### test
 
 ```bash
-bundle exec thor docker
+bundle exec rake spec
 ```
 
 ### Contribution

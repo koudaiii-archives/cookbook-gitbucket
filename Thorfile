@@ -38,13 +38,4 @@ class Docker < Thor
       run "docker build -t #{dest} docker/#{name}"
     end
   end
-
-  desc 'spec', 'run spec'
-  def spec
-    IMAGES.each do |image|
-      ENV['DOCKER_IMAGE'] = image
-      run "echo #{image}"
-      run("bundle exec rspec -r spec_helper")
-    end
-  end
 end

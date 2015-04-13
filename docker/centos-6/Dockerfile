@@ -11,6 +11,7 @@ RUN echo "local_mode      true" >> /etc/chef/client.rb;  \
     echo "ssl_verify_mode :verify_peer" >> /etc/chef/client.rb;
 
 RUN echo '{"run_list":["recipe[my_timezone]"]}' > /var/chef/node/my_timezone.json
+RUN echo '{"run_list":["recipe[my_cron]"]}' > /var/chef/node/my_cron.json
 RUN echo '{"run_list":["recipe[my_ntp]"]}' > /var/chef/node/my_ntp.json
 RUN echo '{"run_list":["recipe[my_postfix]"]}' > /var/chef/node/my_postfix.json
 RUN echo '{"run_list":["recipe[java]"]}' > /var/chef/node/java.json
@@ -21,6 +22,7 @@ RUN echo '{"run_list":["recipe[my_gitbucket]"]}' > /var/chef/node/my_gitbucket.j
 COPY ./cookbooks /cookbooks
 
 RUN chef-client -j /var/chef/node/my_timezone.json
+RUN chef-client -j /var/chef/node/my_cron.json
 RUN chef-client -j /var/chef/node/my_ntp.json
 RUN chef-client -j /var/chef/node/my_postfix.json
 RUN chef-client -j /var/chef/node/java.json
