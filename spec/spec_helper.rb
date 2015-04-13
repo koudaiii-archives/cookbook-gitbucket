@@ -1,6 +1,16 @@
 require 'serverspec'
+require 'net/ssh'
+require 'tempfile'
 
-set :backend, :docker
+set :backend, :ssh
+host = "default"
 
-set :docker_url, ENV['DOCKER_HOST']
-set :docker_image, ENV['DOCKER_IMAGE']
+config = Tempfile.new('', Dir.tmpdir)
+`vagrant ssh-config #{host} > #{config.path}`
+
+options = Net::SSH::Config.for(host, [config.path])
+
+options[:user] ||= Etc.getlogin
+
+set :host,        options[:host_name] || host
+set :ssh_options, options

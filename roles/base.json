@@ -23,6 +23,7 @@
     "recipe[my_ntp]",
     "recipe[my_postfix]",
     "recipe[java]",
-    "recipe[my_jetty]"
+    "recipe[my_jetty]",
+    "recipe[my_glibc]"
   ]
 }
