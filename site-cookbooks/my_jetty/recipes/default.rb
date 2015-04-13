@@ -38,7 +38,7 @@ script "install_jetty" do
   code <<-EOL
     cd /root/
     tar zxvf jetty.tar.gz
-    mv /root/jetty-distribution-9.2.7.v20150116 /opt/jetty
+    mv /root/jetty-distribution-9.2.10.v20150310 /opt/jetty
     cp /opt/jetty/bin/jetty.sh /etc/init.d/jetty
     chown -R jetty:jetty /opt/jetty
   EOL

@@ -1,0 +1,9 @@
+{
+  "run_list": [
+    "role[base]",
+    "role[web]"
+  ],
+  "automatic": {
+    "ipaddress": "192.168.33.10"
+  }
+}

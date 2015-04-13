@@ -1,7 +1,8 @@
 require 'spec_helper'
 
-describe file('/etc/localtime') do
-  it { should contain 'JST' }
+# TimeZone 
+describe command('date'),:if => os[:family] == 'centos'  do
+  its(:stdout) { should eq /JST/ }
 end
 
 describe command('/usr/bin/java -version') do
@@ -26,4 +27,8 @@ end
 
 describe file('/opt/jetty/webapps/gitbucket.war') do
   it { should be_file }
+end
+
+describe port(443) do
+    it { should be_listening }
 end

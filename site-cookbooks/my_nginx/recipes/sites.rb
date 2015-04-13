@@ -26,5 +26,5 @@ link "#{node['nginx']['dir']}/sites-enabled/app" do
     ::File.symlink?("#{node['nginx']['dir']}/sites-enabled/app")
   end
   to "#{node['nginx']['dir']}/sites-available/app"
-  notifies :reload, 'service[nginx]'
+  notifies :restart, 'service[nginx]'
 end

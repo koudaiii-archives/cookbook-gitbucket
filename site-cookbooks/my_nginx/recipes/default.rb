@@ -17,6 +17,27 @@ service "nginx" do
   supports :status => true, :restart => true, :reload => true
 end
 
+execute "Create key and csr" do
+  command "/usr/bin/openssl req -new -newkey rsa:2048 -nodes \
+           -set_serial 1 \
+           -days 3650 \
+           -subj '/C=JP/ST=Tokyo/L=Tokyo City/CN=example.com' \
+           -keyout /etc/nginx/server.key \
+           -out /etc/nginx/server.csr"
+  not_if { File.exists?("/etc/nginx/server.key")}
+end
+
+execute "Create crt" do
+  command "/usr/bin/openssl x509 -req -days 3650 -in /etc/nginx/server.csr -signkey /etc/nginx/server.key -out /etc/nginx/server.crt"
+  not_if { File.exists?("/etc/nginx/server.crt")}
+end
+
+execute "Create dhparam" do
+  command "/usr/bin/openssl dhparam 2048 -out /etc/nginx/dhparam.pem"
+  not_if { File.exists?("/etc/nginx/dhparam.pem")}
+end
+
+
 template 'nginx.conf' do
   path   "#{node['nginx']['dir']}/nginx.conf"
   source 'nginx.conf.erb'

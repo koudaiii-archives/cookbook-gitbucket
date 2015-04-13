@@ -4,12 +4,6 @@
   "json_class" : "Chef::Role",
   "tz": "Asia/Tokyo",
   "override_attributes": {
-    "my_jetty" : {
-      "download_url" : "http://download.eclipse.org/jetty/stable-9/dist/jetty-distribution-9.2.6.v20141205.tar.gz",
-      "host": "127.0.0.1",
-      "java_options": "",
-      "home": "/opt/jetty"
-    },
     "java" : {
       "install_flavor" : "oracle",
       "jdk_version" : "7",
@@ -20,6 +14,7 @@
   },
   "run_list": [
     "recipe[my_timezone]",
+    "recipe[my_cron]",
     "recipe[my_ntp]",
     "recipe[my_postfix]",
     "recipe[java]",

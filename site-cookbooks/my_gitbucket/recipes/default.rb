@@ -11,5 +11,6 @@ remote_file "/opt/jetty/webapps/gitbucket.war" do
   user "jetty"
   group "jetty"
   mode "0755"
-#  notifies :start, "service[jetty]", :immediately
+  notifies :restart, "service[jetty]", :immediately
+  not_if { File.exists?("/opt/jetty/webapps/gitbucket.war")}
 end
